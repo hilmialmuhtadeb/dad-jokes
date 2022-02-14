@@ -19,13 +19,13 @@ export default new Vuex.Store({
   },
   actions: {
     async setCurrentJoke(state) {
-      let joke = await fetch('http://localhost:4000/v1/joke');
+      let joke = await fetch('https://api-dad-jokes.herokuapp.com/v1/joke');
       joke = await joke.json();
       state.commit('setCurrentJoke', joke.joke);
     },
     async addNewJoke(state, payload) {
       // console.log(payload);
-      let joke = await fetch('http://localhost:4000/v1/joke', {
+      let joke = await fetch('https://api-dad-jokes.herokuapp.com/v1/joke', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
