@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav" class="text-center">
-      <router-link class="px-10" to="/">Utama</router-link>
-      <router-link class="px-10" to="/jokes">Semua Jokes</router-link>
-      <router-link class="px-10" to="/add-jokes">Mau Ngejokes?</router-link>
+    <div id="nav" class="px-4 pt-12 pb-8 text-center">
+      <router-link class="px-2 md:px-10" to="/">Utama</router-link>
+      <router-link class="px-2 md:px-10" to="/jokes">Semua Jokes</router-link>
+      <router-link class="px-2 md:px-10" to="/add-jokes">Mau Ngejokes?</router-link>
     </div>
     <router-view/>
   </div>
@@ -24,10 +24,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {
