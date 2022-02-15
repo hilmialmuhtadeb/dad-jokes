@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import PageTitle from '../components/PageTitle.vue';
 import TextViolet from '../components/TextViolet.vue';
 
@@ -21,9 +22,12 @@ export default {
   },
   methods: {
     createJoke() {
-      this.$store.dispatch('addNewJoke', this.joke);
+      this.addNewJoke(this.joke);
       this.joke = '';
     },
+    ...mapActions([
+      'addNewJoke',
+    ]),
   },
   components: {
     'page-title': PageTitle,

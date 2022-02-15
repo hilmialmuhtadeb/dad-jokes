@@ -9,14 +9,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import PageTitle from '../components/PageTitle.vue';
 import TextViolet from '../components/TextViolet.vue';
 
 export default {
   computed: {
-    allJokes() {
-      return this.$store.getters.getAllJokes;
-    },
+    ...mapGetters({
+      allJokes: 'getAllJokes',
+    }),
   },
   components: {
     'page-title': PageTitle,
