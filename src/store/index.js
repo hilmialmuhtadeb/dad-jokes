@@ -20,7 +20,7 @@ export default new Vuex.Store({
   },
   actions: {
     async setCurrentJoke(state) {
-      let joke = await axios.get('http://localhost:4000/v1/joke');
+      let joke = await axios.get('https://api-dad-jokes.herokuapp.com/v1/joke');
       joke = joke.data;
       state.commit('setCurrentJoke', joke.joke);
     },
@@ -33,7 +33,7 @@ export default new Vuex.Store({
           'Content-Type': 'application/json',
         },
       };
-      let joke = await axios.post('http://localhost:4000/v1/joke', data, config);
+      let joke = await axios.post('https://api-dad-jokes.herokuapp.com/v1/joke', data, config);
       joke = joke.data;
 
       if (joke.status === 201) {
