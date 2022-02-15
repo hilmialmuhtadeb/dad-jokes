@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Toasted from 'vue-toasted';
+import axios from 'axios';
 
 Vue.use(Vuex);
 Vue.use(Toasted);
@@ -19,22 +20,21 @@ export default new Vuex.Store({
   },
   actions: {
     async setCurrentJoke(state) {
-      let joke = await fetch('https://api-dad-jokes.herokuapp.com/v1/joke');
-      joke = await joke.json();
+      let joke = await axios.get('http://localhost:4000/v1/joke');
+      joke = joke.data;
       state.commit('setCurrentJoke', joke.joke);
     },
     async addNewJoke(state, payload) {
-      // console.log(payload);
-      let joke = await fetch('https://api-dad-jokes.herokuapp.com/v1/joke', {
-        method: 'POST',
+      const data = {
+        joke: payload,
+      };
+      const config = {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          joke: payload,
-        }),
-      });
-      joke = await joke.json();
+      };
+      let joke = await axios.post('http://localhost:4000/v1/joke', data, config);
+      joke = joke.data;
 
       if (joke.status === 201) {
         Vue.toasted.show(joke.message, {

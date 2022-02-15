@@ -13,17 +13,19 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'Home',
   computed: {
-    joke() {
-      return this.$store.getters.getCurrentJoke;
-    },
+    ...mapGetters({
+      joke: 'getCurrentJoke',
+    }),
   },
   methods: {
-    setCurrentJoke() {
-      this.$store.dispatch('setCurrentJoke');
-    },
+    ...mapActions({
+      setCurrentJoke: 'setCurrentJoke',
+    }),
   },
 };
 </script>

@@ -10,9 +10,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   mounted() {
-    this.$store.dispatch('setCurrentJoke');
+    this.setCurrentJoke();
+  },
+  methods: {
+    ...mapActions([
+      'setCurrentJoke',
+    ]),
   },
 };
 </script>
