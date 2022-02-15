@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     createJoke() {
-      // console.log(this.joke);
       this.$store.dispatch('addNewJoke', this.joke);
       this.joke = '';
     },
