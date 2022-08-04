@@ -6,13 +6,13 @@
   </div>
   <div class="mx-auto mb-12 w-4/5 bg-violet-50 rounded-xl shadow-xl text-center px-4 sm:px-8">
     <h1 class="pt-12 text-2xl font-bold">Kasih <span class="text-violet-600 font-serif">jokes bapak-bapak</span> dong 😁</h1>
-    <div class="mt-8 mb-16">
+    <div class="flex justify-center align-middle h-32 my-4 overflow-auto">
       <template v-if="isLoading">
-        <div class="flex justify-center">
+        <div class="flex justify-center my-auto">
           <img class="animate-spin h-8 w-8 mr-3" viewBox="0 0 24 24" src="../assets/spinner.png" alt="loading-state">
         </div>
       </template>
-      <p v-else class="font-serif md:text-xl">{{ joke }}</p>
+      <p v-else class="flex font-serif md:text-xl my-auto">{{ joke }}</p>
     </div>
     <button class="px-8 py-2 rounded-full bg-violet-700 text-violet-50 mb-12" @click="getOtherJokes">Lagi Dong</button>
   </div>
